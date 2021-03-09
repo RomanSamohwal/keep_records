@@ -1,0 +1,47 @@
+.container {
+
+}
+
+.sidebar-header {
+    background-color: #1565c0;
+    height: 64px;
+    font-size: 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.circle {
+    width: 23px;
+    height: 23px;
+    background-color: white;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.container-title {
+    margin: 5px 0 5px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-container {
+    color: #000000;
+    margin: 23px 22px 22px 22px;
+    font-size: 12px;
+}
+
+.input-item span {
+    display: block;
+    margin: 6px 5px;
+}
+
+.input-container .input-passport {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
