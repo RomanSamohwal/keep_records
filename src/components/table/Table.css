@@ -9,6 +9,7 @@
 
 .box-upper, .box-lower {
     background-color: #76a9fe;
+    position: relative;
    /* border: 1px solid #1e88e5;*/
 }
 

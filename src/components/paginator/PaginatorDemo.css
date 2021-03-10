@@ -7,3 +7,34 @@
     text-align: center;
     padding: 1rem;
 }
+
+
+.p-paginator .p-paginator-current{
+    color: white!important;
+}
+
+.p-paginator {
+    font-size: 12px!important;
+    background: none!important;
+    padding: 0!important;
+    position: absolute!important;
+    color: white!important;
+    top: 4px;
+    left: 438px;
+}
+
+.p-paginator .p-paginator-first,
+.p-paginator .p-paginator-prev,
+.p-paginator .p-paginator-next,
+.p-paginator .p-paginator-last,
+.p-paginator .p-paginator-current {
+    min-width: 0!important;
+    height: 17px!important;
+    margin: 0!important;
+}
+
+.select {
+    position: absolute;
+    top: 0;
+    left: 390px;
+}

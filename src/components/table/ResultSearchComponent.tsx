@@ -1,7 +1,6 @@
 import React from 'react';
 import { TableContainer } from './TableContainer';
 import './Table.css'
-import { PrimeIcons } from 'primereact/api';
 
 export const ResultSearchComponent = () => {
     return <div className={'container-result'}>
