@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './Table.css'
-import {UserType} from "../../api/api";
 
-export const TableComponent = () => {
+export const TableComponent = (props: any) => {
     const title = ['Фамилия', 'Имя', 'Отчество',
         'Дата рождения', 'Идентификационный номер',
         'Адрес регистрации (после конвертации)',
@@ -10,28 +9,10 @@ export const TableComponent = () => {
         'Дата регистрации'
     ]
 
-    const data: Array<UserType> = [{
-        surname: 'Самохвал', bdate: '06232'
-        , ateAddress: 'wewewwe', name: 'Роман', addressLast: 'Гатово', sname: 'Сергеевич',
-        dsdDateRec: 'sdsdsd', identif: '12132332413'
-    },
-        {surname: 'Самохвал', bdate: '06232', ateAddress: 'wewewwe', name: 'Роман', addressLast: 'Гатово', sname: 'Самохвал', dsdDateRec: 'sdsdsd', identif: '12132332413'
-    }, {surname: 'Самохвал', bdate: '06232', ateAddress: 'wewewwe', name: 'Роман', addressLast: 'Гатово', sname: 'Самохвал', dsdDateRec: 'sdsdsd', identif: '12132332413'
-        }, {surname: 'Самохвал', bdate: '06232', ateAddress: 'wewewwe', name: 'Роман', addressLast: 'Гатово', sname: 'Самохвал', dsdDateRec: 'sdsdsd', identif: '12132332413'
-        }, {surname: 'Самохвал', bdate: '06232', ateAddress: 'wewewwe', name: 'Роман', addressLast: 'Гатово', sname: 'Самохвал', dsdDateRec: 'sdsdsd', identif: '12132332413'
-        }, {surname: 'Самохвал', bdate: '06232', ateAddress: 'wewewwe', name: 'Роман', addressLast: 'Гатово', sname: 'Самохвал', dsdDateRec: 'sdsdsd', identif: '12132332413'
-        },
-        {surname: 'Самохвал', bdate: '06232', ateAddress: 'wewewwe', name: 'Роман', addressLast: 'Гатово', sname: 'Самохвал', dsdDateRec: 'sdsdsd', identif: '12132332413'
-        },{surname: 'Самохвал', bdate: '06232', ateAddress: 'wewewwe', name: 'Роман', addressLast: 'Гатово', sname: 'Самохвал', dsdDateRec: 'sdsdsd', identif: '12132332413'
-        },{surname: 'Самохвал', bdate: '06232', ateAddress: 'wewewwe', name: 'Роман', addressLast: 'Гатово', sname: 'Самохвал', dsdDateRec: 'sdsdsd', identif: '12132332413'
-        },{surname: 'Самохвал', bdate: '06232', ateAddress: 'wewewwe', name: 'Роман', addressLast: 'Гатово', sname: 'Самохвал', dsdDateRec: 'sdsdsd', identif: '12132332413'
-        },{surname: 'Самохвал', bdate: '06232', ateAddress: 'wewewwe', name: 'Роман', addressLast: 'Гатово', sname: 'Самохвал', dsdDateRec: 'sdsdsd', identif: '12132332413'
-        }
-    ]
 
-    const ArrayDate = data.map((user) => (
+    const ArrayDate = props.data.map((user: any) => (
             <tr role={'row'} key={user.identif}
-                style={{backgroundColor: 'white', height: '23px', fontWeight: 500, fontSize: '10px'}}>
+                style={{backgroundColor: 'white', height: '23px', fontWeight: 500, fontSize: '6px'}}>
                 <td role={'cell'}>
                     <div style={{display: "flex", justifyContent: "center"}}>
                        <div>
@@ -92,11 +73,9 @@ export const TableComponent = () => {
         )
     )
 
-    console.log(ArrayDate)
-
     const headerTable = title.map((t) => {
         return <th style={{
-            width: '198px',
+            width: '210px',
             height: '38px',
             backgroundColor: '#d9e8fc',
             border: '1px solid #d8d8d8',

@@ -7,7 +7,7 @@ export const ResultSearchComponent = () => {
         <div className={'header-result'}>
            <div className={'result-icon'}>
             <div className={'result-item'}>
-                <i className="pi pi-search" style={{'fontSize': '10px'}}></i>
+                <i className="pi pi-search" style={{'fontSize': '10px'}}/>
             </div>
             <div className={'result-item'}>
                 Поиск

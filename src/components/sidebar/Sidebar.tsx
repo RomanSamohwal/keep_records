@@ -8,7 +8,7 @@ export const SidebarComponent = () => {
     return (
         <div className={'p-sidebar p-component p-sidebar-left p-sidebar-active'}
              style={{width: '240px', padding: '0'}}>
-            <div className={'container'}>
+            <div className={'container-sidebar'}>
                 <div className={'sidebar-header'}>
                     <div className={'container-title'}>
                         <div>Регистрационный</div>
