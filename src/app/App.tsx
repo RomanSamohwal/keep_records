@@ -6,20 +6,26 @@ import 'primeicons/primeicons.css';
 import {ResultSearchComponent} from "../components/table/ResultSearchComponent";
 import { PaginatorDemo} from '../components/paginator/PaginatorComponent';
 import {SidebarComponent} from "../components/sidebar/Sidebar";
+import { TopBar } from '../components/topbar/Topbar';
 
 function App() {
 
-    return (<div style={{display: "flex", justifyContent: "space-between"}}>
-         <div>
-             <SidebarComponent/>
-         </div>
+    return ( <div>
+             <TopBar/>
+           {/* <div style={{display: "flex", justifyContent: "space-between"}}>
+                <div>
+                    <SidebarComponent/>
+                </div>
 
-            {/* <DataTablePaginatorDemo/>*/}
-           <div>
-               <ResultSearchComponent/>
-           </div>
+                 <DataTablePaginatorDemo/>
+                <div>
+                    <ResultSearchComponent/>
+                </div>
+            </div>*/}
+    </div>
 
-        </div>
+
+
     );
 }
 
