@@ -1,6 +1,6 @@
 import React from 'react';
 import './Table.css'
-import {UserType} from "../../api/api";
+import {UserForm} from "../../utils/formUser";
 
 export const TableComponent = (props: any) => {
 
@@ -11,7 +11,7 @@ export const TableComponent = (props: any) => {
         'Дата регистрации'
     ]
 
-  const ArrayDate = props.data.map((user: UserType) => (
+  const ArrayDate = props.data.map((user: UserForm) => (
             <tr role={'row'} key={user.identif}>
                 <td role={'cell'} className={'table-cell'}>
                     <span>{user.surname}</span>

@@ -3,17 +3,17 @@
     border: 1px solid #c0c0c0;
     border-radius: 3px;
     background-color: #c0c0c0;
-    margin: 20px 0 0 218px;
+  /*  margin: 20px 0 0 218px;*/
 }
 
 .header-result {
-    height: 34px;
+    height: 27px;
     border: 1px solid #c0c0c0;
 }
 
 .result-icon {
-    height: 32px;
-    width: 69px;
+    height: 25px;
+    width: 61px;
     background-color: white;
     font-size: 10px;
     font-weight: 500;
@@ -25,3 +25,4 @@
 .result-item {
     margin: 0 7px;
 }
+

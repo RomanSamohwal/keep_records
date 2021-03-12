@@ -9,18 +9,21 @@
     background-color: #76a9fe;
     position: relative;
 }
-
 .box-upper {
-    height: 22px;
+    height: 20px;
     color: white;
-    font-size: 13px;
     display: flex;
     justify-content: center;
+    font-size: 12px;
     border-bottom: 1px solid #1e88e5;
 }
 
+.box-upper span{
+    display: block;
+}
+
 .box-lower {
-    height: 27px;
+    height: 20px;
     border-top: 1px solid #1e88e5;
 }
 

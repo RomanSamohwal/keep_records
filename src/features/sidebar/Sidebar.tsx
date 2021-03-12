@@ -6,7 +6,7 @@ import {ButtonComponent} from '../../components/button/Button';
 
 export const SidebarComponent = () => {
 
-    return (<div className={'container-sidebar'}>
+    return <div className={'container-sidebar'}>
             <div className={'p-sidebar p-component p-sidebar-left p-sidebar-active'}>
                 <SideBarHeader/>
                 <div className='input-container'>
@@ -22,5 +22,4 @@ export const SidebarComponent = () => {
                 </div>
             </div>
         </div>
-    )
 }

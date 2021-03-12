@@ -19,8 +19,8 @@
     padding: 0!important;
     position: absolute!important;
     color: white!important;
-    top: 4px;
-    left: 438px;
+    top: 2px;
+    left: 457px;
 }
 
 .p-paginator .p-paginator-first,
@@ -35,6 +35,6 @@
 
 .select {
     position: absolute;
-    top: 0;
-    left: 390px;
+    top: -3px;
+    left: 405px;
 }

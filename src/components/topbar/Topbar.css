@@ -1,7 +1,7 @@
 .layout-topbar {
     background-color: #00a2e8;
     height: 41px;
-   /* position: fixed;*/
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -11,6 +11,6 @@
     display: flex;
     -ms-flex-align: center;
     align-items: center;
-    /*padding: 0 23px;*/
+    padding: 0 23px;
     z-index: 5;
 }

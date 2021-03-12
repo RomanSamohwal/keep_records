@@ -1,4 +1,13 @@
 import axios from 'axios';
+const instance = axios.create({
+    baseURL: 'https://a.todes.by:13555/data-service-test/api/v1/',
+})
+
+export const ApiUsers = {
+    getUsers: async (): Promise<User> => {
+        return await instance.get(`data?sys_organ=26&identif&surname &name&patronymic&doc_series&doc_num`)
+    }
+}
 
 export type User = {
     pid: 2000000000004082496
@@ -188,14 +197,5 @@ type addressLast = {
     ateAddrNum: any
 }
 
-export type UserType = {
-    surname: string
-    name: string
-    sname: string
-    bdate: string
-    identif: string
-    addressLast: string
-    ateAddress: string
-    dsdDateRec: any
-}
+
 

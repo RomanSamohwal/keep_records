@@ -7,8 +7,11 @@ import {ResultSearchComponent} from '../../components/table/ResultSearchComponen
 export const Main = () => {
     return <div className={'main-container'}>
         <TopBar/>
-        <SidebarComponent/>
-        <ResultSearchComponent/>
+
+        <div style={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
+            <SidebarComponent/>
+            <ResultSearchComponent/>
+        </div>
     </div>
 }
 

@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {PaginatorDemo} from '../paginator/PaginatorComponent';
 import {TableComponent} from "./TableComponent";
-import {UserType} from "../../api/api";
+
 import { ChangeEvent } from 'react';
 import './TableContainer.css'
 
 export const TableContainer = () => {
-    const data: Array<UserType> = [{
+    const data = [{
         surname: 'Самохвал', bdate: '06232'
         , ateAddress: 'wewewwe', name: 'Роман', addressLast: 'Гатово', sname: 'Сергеевич',
         dsdDateRec: 'sdsdsd', identif: '12132332413'
@@ -100,9 +100,7 @@ export const TableContainer = () => {
 
     return <div className={'container'}>
         <div className={'box-upper'}>
-            <div>
-                Результат поиска
-            </div>
+                <span>Результат поиска</span>
         </div>
         <TableComponent data = {currentData}/>
         <div className={'box-lower'}>
@@ -113,12 +111,10 @@ export const TableContainer = () => {
                     <option>25</option>
                 </select>
             </div>
-            <div>
+
                 <PaginatorDemo totalPages ={totalPages}
                                currentPage = {currentPage}
-                               onChangeCurrentPage = {onChangeCurrentPage}
-                />
-            </div>
+                               onChangeCurrentPage = {onChangeCurrentPage}/>
         </div>
     </div>
 }
