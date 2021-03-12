@@ -1,0 +1,26 @@
+.container {
+    width: 1010px;
+    background-color: #76a9fe;
+    border: 1px solid #1e88e5;
+    border-radius: 3px;
+}
+
+.box-upper, .box-lower {
+    background-color: #76a9fe;
+    position: relative;
+}
+
+.box-upper {
+    height: 22px;
+    color: white;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #1e88e5;
+}
+
+.box-lower {
+    height: 27px;
+    border-top: 1px solid #1e88e5;
+}
+

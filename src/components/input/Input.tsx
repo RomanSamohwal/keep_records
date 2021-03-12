@@ -6,9 +6,11 @@ export const InputComponent = (props: any) => {
 
     return (
         <div>
-            <InputText style={{margin: 0, padding: 0, width: `${props.width}`, height: '22px'}} value={value1}
+            <InputText style={{margin: 0, padding: 0, width: `${props.width}`, height: '18px', fontSize: '0.8rem'}} value={value1}
                        onChange={(e) => setValue1(e.currentTarget.value)}
                        placeholder={props.placeholder}/>
         </div>
     )
 }
+
+//width: 196px height: 22px

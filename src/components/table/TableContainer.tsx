@@ -3,6 +3,7 @@ import {PaginatorDemo} from '../paginator/PaginatorComponent';
 import {TableComponent} from "./TableComponent";
 import {UserType} from "../../api/api";
 import { ChangeEvent } from 'react';
+import './TableContainer.css'
 
 export const TableContainer = () => {
     const data: Array<UserType> = [{

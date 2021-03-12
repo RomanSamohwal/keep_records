@@ -1,16 +1,16 @@
 .layout-topbar {
     background-color: #00a2e8;
-    height: 49px;
-    position: fixed;
+    height: 41px;
+   /* position: fixed;*/
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 997;
     -webkit-box-shadow: 0 0 4px rgb(0 0 0);
-    box-shadow: 0 8px 10px -1px rgba(0,0,0,0.25);
+    box-shadow: 0 8px 10px -1px rgba(0, 0, 0, 0.25);
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
     align-items: center;
-    padding: 0 23px;
+    /*padding: 0 23px;*/
+    z-index: 5;
 }
