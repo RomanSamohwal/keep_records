@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 import './Sidebar.css'
-import {InputComponent} from "../../components/input/Input";
+import {InputComponent} from '../../components/input/Input';
 
 type InputDataProps = {
     id: string
@@ -13,9 +13,9 @@ type InputDataProps = {
 }
 
 export const SidebarInputData = (props: InputDataProps) => {
-    return <div className="input-item">
+    return <div className='input-item'>
         <span>{props.title}</span>
-        <InputComponent id = {props.id} name = {props.name} onChange = {props.onChange}
-                        value = {props.value} placeholder={props.placeholder} width={props.width}/>
+        <InputComponent id={props.id} name={props.name} onChange={props.onChange}
+                        value={props.value} placeholder={props.placeholder} width={props.width}/>
     </div>
 }

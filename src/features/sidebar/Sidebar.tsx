@@ -4,20 +4,24 @@ import {SideBarHeader} from './SidebarHeader';
 import {SidebarInputData} from './SidebarInput';
 import {ButtonComponent} from '../../components/button/Button';
 import {useFormik} from 'formik';
-import {getUserParam} from "../../api/api";
-import {UserForm} from "../../utils/formUser";
-import {useDispatch, useSelector} from "react-redux";
-import {AppRootStateType} from "../../bll/store";
-import { getSelectedUser } from '../../bll/users-reducer';
+import {getUserParam} from '../../api/api';
+import {useDispatch} from 'react-redux';
+import {getSelectedUser} from '../../bll/users-reducer';
+import { setAppMessage } from '../../bll/app-reducer';
+
+const message = "Заполните поле '№ паспорта' или 'Фамилия' или 'Идентификационный номер'"
 
 export const SidebarComponent = () => {
     const dispatch = useDispatch()
 
     const formik = useFormik({
         initialValues: {} as getUserParam,
-        validate: validate,
         onSubmit: (values: getUserParam) => {
-            dispatch(getSelectedUser(values))
+            if (values.surname || values.identif || values.doc_num) {
+                dispatch(getSelectedUser(values))
+            } else {
+               dispatch(setAppMessage({message: message}))
+            }
         }
     })
 
@@ -38,7 +42,7 @@ export const SidebarComponent = () => {
                     <SidebarInputData id={'identif'} name={'identif'} onChange={formik.handleChange}
                                       value={formik.values.identif}
                                       title={'Идентификационный номер'} placeholder={'ВВЕДИТЕ НОМЕР'} width={'155px'}/>
-                    <div className="input-item input-passport">
+                    <div className='input-item input-passport'>
                         <SidebarInputData id={'doc_series'} name={'doc_series'} onChange={formik.handleChange}
                                           value={formik.values.doc_series}
                                           title={'Серия'} placeholder={''} width={'44px'}/>
@@ -52,10 +56,3 @@ export const SidebarComponent = () => {
         </div>
     </form>
 }
-
-let validate = (values: getUserParam) => {
-    if (!values.name) {
-        return {}
-    }
-}
-

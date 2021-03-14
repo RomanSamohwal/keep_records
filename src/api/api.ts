@@ -7,8 +7,7 @@ const instance = axios.create({
 export const ApiUsers = {
     getUsers: async (identif: number | string = '', surname: string = '', name : string = '',
                      patronymic: string = '', doc_series: number | string = '', doc_num : number | string = '') => {
-        let result = await instance.get(`data?sys_organ=26&identif=${identif}&surname=${surname}&name=${name}&patronymic=${patronymic}&doc_series=${doc_series}&doc_num=${doc_num}`)
-        return result.data
+        return await instance.get(`data?sys_organ=26&identif=${identif}&surname=${surname}&name=${name}&patronymic=${patronymic}&doc_series=${doc_series}&doc_num=${doc_num}`)
     }
 }
 

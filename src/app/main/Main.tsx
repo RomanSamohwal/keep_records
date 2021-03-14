@@ -1,13 +1,22 @@
 import React from 'react';
 import {TopBar} from '../../components/topbar/Topbar';
 import './Main.css'
-import {SidebarComponent} from "../../features/sidebar/Sidebar";
-import {ResultSearchComponent} from '../../components/table/ResultSearchComponent';
+import {SidebarComponent} from '../../features/sidebar/Sidebar';
+import {ResultSearchComponent} from '../../features/table/ResultSearchComponent';
+import {Progress} from '../../common/loading/Loading';
+import {useSelector} from 'react-redux';
+import {AppRootStateType} from '../../bll/store';
 
 export const Main = () => {
+
+    let status = useSelector<AppRootStateType>(state => state.app.status)
+    if (status === 'loading') {
+        return <Progress/>
+    }
+
     return <div className={'main-container'}>
-        <TopBar/>
-        <div style={{minWidth: '100%', display: "flex", alignItems: "center", justifyContent: "space-between" ,paddingTop: '60px', paddingRight: '25px'}}>
+        <div className={'main-content'}>
+            <TopBar/>
             <SidebarComponent/>
             <ResultSearchComponent/>
         </div>

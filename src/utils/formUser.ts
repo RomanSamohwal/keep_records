@@ -1,19 +1,19 @@
-import {addressLast, User} from "../api/api";
+import {addressLast, User} from '../api/api';
 import moment from 'moment'
 
 export const formUsers = (data: any) => {
-    return data.map((u : any) => formUser(u))
+    return data.map((u: any) => formUser(u))
 }
 
-const formUser = (user: User) : UserForm => {
+const formUser = (user: User): UserForm => {
     return {
-        name : user.name,
+        name: user.name,
         surname: user.surname,
         sname: user.sname,
         identif: user.identif,
         addressLast: 'address',
         ateAddress: user.ateAddress,
-        bdate:  formDate(user.bdate),
+        bdate: formDate(user.bdate),
         dsdDateRec: formAddressDsd(user.addressLast)
     }
 }
@@ -23,18 +23,18 @@ export const formDate = (date: string) => {
 }
 
 const formAddressDsd = (data: addressLast) => {
-    return  compareValue(data.areaL) +
-            compareValue(data.areaObjNum) +
-            compareValue(data.regionL) +
-            compareValue(data.villageCouncil) +
-            compareValue(data.vilCouncilObjNum) +
-            compareValue(data.typeCityL) +
-            compareValue(data.cityL) +
-            compareValue(data.typeStreetL) +
-            compareValue(data.streetL) +
-            compareValue(data.house) +
-            compareValue(data.korps) +
-            compareValue(data.app)
+    return compareValue(data.areaL) +
+        compareValue(data.areaObjNum) +
+        compareValue(data.regionL) +
+        compareValue(data.villageCouncil) +
+        compareValue(data.vilCouncilObjNum) +
+        compareValue(data.typeCityL) +
+        compareValue(data.cityL) +
+        compareValue(data.typeStreetL) +
+        compareValue(data.streetL) +
+        compareValue(data.house) +
+        compareValue(data.korps) +
+        compareValue(data.app)
 }
 
 const compareValue = (value: string) => value ? value + ' ' : ''

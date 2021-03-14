@@ -1,18 +1,20 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 import {ApiUsers, getUserParam} from '../api/api';
-import {formUsers, UserForm} from "../utils/formUser";
+import {formUsers, UserForm} from '../utils/formUser';
+import {setAppError, setAppStatus} from './app-reducer';
 
 export const getSelectedUser = createAsyncThunk(
     'users/getSelectedUser',
     async (param: getUserParam, thunkAPI) => {
         try {
-            const response = await ApiUsers.getUsers(param.identif,param.surname,
-                    param.name, param.patronymic, param.doc_series, param.doc_num)
-            const users = formUsers(response)
+            thunkAPI.dispatch(setAppStatus({status: 'loading'}))
+            const response = await ApiUsers.getUsers(param.identif, param.surname,
+                param.name, param.patronymic, param.doc_series, param.doc_num)
+            thunkAPI.dispatch(setAppStatus({status: 'succeeded'}))
+            const users = formUsers(response.data)
             return {users}
         } catch (e) {
-            /* thunkAPI.dispatch(setAppStatus({status: 'failed'}))
-             thunkAPI.dispatch(setAppError({error: String(e)}))*/
+            thunkAPI.dispatch(setAppError({error: String(e)}))
             return thunkAPI.rejectWithValue(null)
         }
     });
@@ -29,6 +31,3 @@ const slice = createSlice({
 })
 
 export const userReducer = slice.reducer
-
-
-
