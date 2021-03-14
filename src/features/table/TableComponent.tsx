@@ -16,9 +16,8 @@ export const TableComponent = React.memo((props: any) => {
 
     const ArrayDate = props.data.length > 0
                ? props.data.map((user: UserForm) => (
-                 <FormTable key={user.identif + Math.floor(Math.random() * Math.floor(1000))} user = {user}
-                 border={'1px solid #d8d8d8'}/>))
-               : <FormTable backgroundColor={'#0000'} height={'auto'} margin={'5px'} textAlign={'left'} border={''}/>
+                 <FormTable key={user.identif + Math.floor(Math.random() * Math.floor(1000))} user = {user}/>))
+               : <FormTable backgroundColor={'#0000'} height={'auto'} margin={'5px'} textAlign={'left'} border={'none'}/>
 
     const headerTable = title.map((t) => {
         return <th key={t}  className='table-cell header' style={{backgroundColor: '#d9e8fc', height: '35px'}}>

@@ -11,6 +11,7 @@ export const Messages = () => {
 
     let error = useSelector<AppRootStateType>(state => state.app.error)
     let message = useSelector<AppRootStateType>(state => state.app.message)
+
     const dispatch = useDispatch()
 
     const showInfo = () => {
