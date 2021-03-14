@@ -11,10 +11,10 @@ const formUser = (user: User): UserForm => {
         surname: user.surname,
         sname: user.sname,
         identif: user.identif,
-        addressLast: 'address',
+        addressLast: formAddressLast(user.addressLast),
         ateAddress: user.ateAddress,
         bdate: formDate(user.bdate),
-        dsdDateRec: formAddressDsd(user.addressLast)
+        dsdDateRec: user.dsdDateRec
     }
 }
 
@@ -22,7 +22,7 @@ export const formDate = (date: string) => {
     return moment(date).format('yyyy-MM-DD')
 }
 
-const formAddressDsd = (data: addressLast) => {
+const formAddressLast = (data: addressLast) => {
     return compareValue(data.areaL) +
         compareValue(data.areaObjNum) +
         compareValue(data.regionL) +
@@ -31,13 +31,13 @@ const formAddressDsd = (data: addressLast) => {
         compareValue(data.typeCityL) +
         compareValue(data.cityL) +
         compareValue(data.typeStreetL) +
-        compareValue(data.streetL) +
+        compareValue(data.streetL)  +
         compareValue(data.house) +
         compareValue(data.korps) +
         compareValue(data.app)
 }
 
-const compareValue = (value: string) => value ? value + ' ' : ''
+const compareValue = (value: string) => value ?  value + ' ' : ''
 
 export type UserForm = {
     surname: string
