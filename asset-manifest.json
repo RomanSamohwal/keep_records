@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/keep_records/static/css/main.a858bbb3.chunk.css",
+    "main.js": "/keep_records/static/js/main.d236bed6.chunk.js",
+    "main.js.map": "/keep_records/static/js/main.d236bed6.chunk.js.map",
+    "runtime-main.js": "/keep_records/static/js/runtime-main.fd71beb5.js",
+    "runtime-main.js.map": "/keep_records/static/js/runtime-main.fd71beb5.js.map",
+    "static/css/2.7f75a949.chunk.css": "/keep_records/static/css/2.7f75a949.chunk.css",
+    "static/js/2.3a442e34.chunk.js": "/keep_records/static/js/2.3a442e34.chunk.js",
+    "static/js/2.3a442e34.chunk.js.map": "/keep_records/static/js/2.3a442e34.chunk.js.map",
+    "static/js/3.c7d9771d.chunk.js": "/keep_records/static/js/3.c7d9771d.chunk.js",
+    "static/js/3.c7d9771d.chunk.js.map": "/keep_records/static/js/3.c7d9771d.chunk.js.map",
+    "index.html": "/keep_records/index.html",
+    "static/css/2.7f75a949.chunk.css.map": "/keep_records/static/css/2.7f75a949.chunk.css.map",
+    "static/css/main.a858bbb3.chunk.css.map": "/keep_records/static/css/main.a858bbb3.chunk.css.map",
+    "static/js/2.3a442e34.chunk.js.LICENSE.txt": "/keep_records/static/js/2.3a442e34.chunk.js.LICENSE.txt",
+    "static/media/primereact.min.css": "/keep_records/static/media/color.6441e63a.png",
+    "static/media/primeicons.css": "/keep_records/static/media/primeicons.e61f3495.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fd71beb5.js",
+    "static/css/2.7f75a949.chunk.css",
+    "static/js/2.3a442e34.chunk.js",
+    "static/css/main.a858bbb3.chunk.css",
+    "static/js/main.d236bed6.chunk.js"
+  ]
+}
