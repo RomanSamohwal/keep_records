@@ -1,16 +1,20 @@
-import {User} from "../api/api";
+import {addressLast, User} from "../api/api";
 import moment from 'moment'
 
-export const formUser = (data: User) : UserForm => {
+export const formUsers = (data: any) => {
+    return data.map((u : any) => formUser(u))
+}
+
+const formUser = (user: User) : UserForm => {
     return {
-        name : data.name,
-        surname: data.surname,
-        sname: data.sname,
-        identif: data.identif,
+        name : user.name,
+        surname: user.surname,
+        sname: user.sname,
+        identif: user.identif,
         addressLast: 'address',
-        ateAddress: data.ateAddress,
-        bdate:  formDate(data.bdate),
-        dsdDateRec: 'saas'
+        ateAddress: user.ateAddress,
+        bdate:  formDate(user.bdate),
+        dsdDateRec: formAddressDsd(user.addressLast)
     }
 }
 
@@ -18,6 +22,22 @@ export const formDate = (date: string) => {
     return moment(date).format('yyyy-MM-DD')
 }
 
+const formAddressDsd = (data: addressLast) => {
+    return  compareValue(data.areaL) +
+            compareValue(data.areaObjNum) +
+            compareValue(data.regionL) +
+            compareValue(data.villageCouncil) +
+            compareValue(data.vilCouncilObjNum) +
+            compareValue(data.typeCityL) +
+            compareValue(data.cityL) +
+            compareValue(data.typeStreetL) +
+            compareValue(data.streetL) +
+            compareValue(data.house) +
+            compareValue(data.korps) +
+            compareValue(data.app)
+}
+
+const compareValue = (value: string) => value ? value + ' ' : ''
 
 export type UserForm = {
     surname: string

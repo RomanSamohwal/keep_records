@@ -1,31 +1,34 @@
-import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {ApiUsers, User } from '../api/api';
+import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
+import {ApiUsers, getUserParam} from '../api/api';
+import {formUsers, UserForm} from "../utils/formUser";
 
-export const getUsers = createAsyncThunk(
-    'users/getUsers',
-    async (param  ,thunkAPI) => {
+export const getSelectedUser = createAsyncThunk(
+    'users/getSelectedUser',
+    async (param: getUserParam, thunkAPI) => {
         try {
-            const users = await ApiUsers.getUsers()
+            const response = await ApiUsers.getUsers(param.identif,param.surname,
+                    param.name, param.patronymic, param.doc_series, param.doc_num)
+            const users = formUsers(response)
             return {users}
         } catch (e) {
-             /* thunkAPI.dispatch(setAppStatus({status: 'failed'}))
-              thunkAPI.dispatch(setAppError({error: String(e)}))*/
-              return thunkAPI.rejectWithValue(null)
+            /* thunkAPI.dispatch(setAppStatus({status: 'failed'}))
+             thunkAPI.dispatch(setAppError({error: String(e)}))*/
+            return thunkAPI.rejectWithValue(null)
         }
     });
 
 const slice = createSlice({
     name: 'users',
-    initialState: [] as Array<User>,
+    initialState: [] as Array<UserForm>,
     reducers: {},
     extraReducers: builder => {
-        builder.addCase(getUsers.fulfilled, (state, action) => {
-            state.concat(action.payload.users)
-        }
-    )}
+        builder.addCase(getSelectedUser.fulfilled, (state, action) => {
+            return action.payload.users
+        })
+    }
 })
 
 export const userReducer = slice.reducer
-export const {} = slice.actions
+
 
 

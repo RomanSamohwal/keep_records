@@ -1,16 +1,27 @@
 import axios from 'axios';
+
 const instance = axios.create({
-    baseURL: 'https://a.todes.by:13555/data-service-test/api/v1/',
+    baseURL: 'https://a.todes.by:13555/data-service-test/api/v1/'
 })
 
 export const ApiUsers = {
-    getUsers: async (): Promise<User> => {
-        return await instance.get(`data?sys_organ=26&identif&surname &name&patronymic&doc_series&doc_num`)
+    getUsers: async (identif: number | string = '', surname: string = '', name : string = '',
+                     patronymic: string = '', doc_series: number | string = '', doc_num : number | string = '') => {
+        let result = await instance.get(`data?sys_organ=26&identif=${identif}&surname=${surname}&name=${name}&patronymic=${patronymic}&doc_series=${doc_series}&doc_num=${doc_num}`)
+        return result.data
     }
 }
 
+export type getUserParam = {
+    identif?: number,
+    name?: string,
+    surname?: string,
+    patronymic?: string,
+    doc_series?: string,
+    doc_num?: number
+}
 export type User = {
-    pid: 2000000000004082496
+    pid: number
     identif: string
     view: {
         klUniPK: {
@@ -104,7 +115,7 @@ export type User = {
     workPlace: any
     workPosition: any
     docIssueOrgan: any
-    surnameBel : any
+    surnameBel: any
     nameBel: any
     snameBel: any
     surnameEn: any
@@ -175,8 +186,7 @@ export type User = {
     },
     status: any
 }
-
-type addressLast = {
+export type addressLast = {
     dsdAddressLiveBase: string
     pid: any
     areaL: string
@@ -196,6 +206,3 @@ type addressLast = {
     ateElementUid: any
     ateAddrNum: any
 }
-
-
-

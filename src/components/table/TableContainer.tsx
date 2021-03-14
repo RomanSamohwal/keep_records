@@ -1,85 +1,17 @@
-import React, {useEffect, useState} from 'react';
+import React, {ChangeEvent, useEffect, useState} from 'react';
 import {PaginatorDemo} from '../paginator/PaginatorComponent';
 import {TableComponent} from "./TableComponent";
-
-import { ChangeEvent } from 'react';
 import './TableContainer.css'
+import {useSelector} from 'react-redux';
+import {AppRootStateType} from '../../bll/store';
+import {UserForm} from '../../utils/formUser';
 
 export const TableContainer = () => {
-    const data = [{
-        surname: 'Самохвал', bdate: '06232'
-        , ateAddress: 'wewewwe', name: 'Роман', addressLast: 'Гатово', sname: 'Сергеевич',
-        dsdDateRec: 'sdsdsd', identif: '12132332413'
-    },{
-        surname: 'Мизинец', bdate: '06232'
-        , ateAddress: 'wewewwe', name: 'ОЛьга', addressLast: 'Гатово', sname: 'Сергеевич',
-        dsdDateRec: 'sdsdsd', identif: '12132332413'
-    },{
-        surname: 'Никитина', bdate: '06232'
-        , ateAddress: 'wewewwe', name: 'Вероника', addressLast: 'Гатово', sname: 'Сергеевич',
-        dsdDateRec: 'sdsdsd', identif: '12132332413'
-    },{
-        surname: 'Мазовка', bdate: '06232'
-        , ateAddress: 'wewewwe', name: 'Наташа', addressLast: 'Гатово', sname: 'Сергеевич',
-        dsdDateRec: 'sdsdsd', identif: '12132332413'
-    }, {
-        surname: 'Владимиров', bdate: '06232'
-        , ateAddress: 'wewewwe', name: 'Денис', addressLast: 'Гатово', sname: 'Сергеевич',
-        dsdDateRec: 'sdsdsd', identif: '12132332413'
-    },{
-        surname: 'Мазовка', bdate: '06232'
-        , ateAddress: 'wewewwe', name: 'Наташа', addressLast: 'Гатово', sname: 'Сергеевич',
-        dsdDateRec: 'sdsdsd', identif: '12132332413'
-    },{
-        surname: 'Мазовка', bdate: '06232'
-        , ateAddress: 'wewewwe', name: 'Наташа', addressLast: 'Гатово', sname: 'Сергеевич',
-        dsdDateRec: 'sdsdsd', identif: '12132332413'
-    },{
-        surname: 'Мазовка', bdate: '06232'
-        , ateAddress: 'wewewwe', name: 'Наташа', addressLast: 'Гатово', sname: 'Сергеевич',
-        dsdDateRec: 'sdsdsd', identif: '12132332413'
-    },{
-        surname: 'Мазовка', bdate: '06232'
-        , ateAddress: 'wewewwe', name: 'Наташа', addressLast: 'Гатово', sname: 'Сергеевич',
-        dsdDateRec: 'sdsdsd', identif: '12132332413'
-    },{
-        surname: 'Мазовка', bdate: '06232'
-        , ateAddress: 'wewewwe', name: 'Наташа', addressLast: 'Гатово', sname: 'Сергеевич',
-        dsdDateRec: 'sdsdsd', identif: '12132332413'
-    },{
-        surname: 'Мазовка', bdate: '06232'
-        , ateAddress: 'wewewwe', name: 'Наташа', addressLast: 'Гатово', sname: 'Сергеевич',
-        dsdDateRec: 'sdsdsd', identif: '12132332413'
-    },{
-        surname: 'Мазовка', bdate: '06232'
-        , ateAddress: 'wewewwe', name: 'Наташа', addressLast: 'Гатово', sname: 'Сергеевич',
-        dsdDateRec: 'sdsdsd', identif: '12132332413'
-    },{
-        surname: 'Мазовка', bdate: '06232'
-        , ateAddress: 'wewewwe', name: 'Наташа', addressLast: 'Гатово', sname: 'Сергеевич',
-        dsdDateRec: 'sdsdsd', identif: '12132332413'
-    },{
-        surname: 'Мазовка', bdate: '06232'
-        , ateAddress: 'wewewwe', name: 'Наташа', addressLast: 'Гатово', sname: 'Сергеевич',
-        dsdDateRec: 'sdsdsd', identif: '12132332413'
-    },{
-        surname: 'Мазовка', bdate: '06232'
-        , ateAddress: 'wewewwe', name: 'Наташа', addressLast: 'Гатово', sname: 'Сергеевич',
-        dsdDateRec: 'sdsdsd', identif: '12132332413'
-    },{
-        surname: 'Мазовка', bdate: '06232'
-        , ateAddress: 'wewewwe', name: 'Наташа', addressLast: 'Гатово', sname: 'Сергеевич',
-        dsdDateRec: 'sdsdsd', identif: '12132332413'
-    },{
-        surname: 'Мазовка', bdate: '06232'
-        , ateAddress: 'wewewwe', name: 'Наташа', addressLast: 'Гатово', sname: 'Сергеевич',
-        dsdDateRec: 'sdsdsd', identif: '12132332413'
-    }
-    ]
+    const data: Array<UserForm> | any = useSelector<AppRootStateType>(state => state.users)
 
     useEffect(() => {
         setTotalCount(data.length)
-    }, [data.length])
+    }, [data])
 
     const [pageSize, setPageSize] = useState(15)
     const [totalCount, setTotalCount] = useState(data.length)
@@ -88,6 +20,7 @@ export const TableContainer = () => {
     let indexOfLastPost = (currentPage + 1) * pageSize
     let indexOfFirstPost = indexOfLastPost - pageSize
     let currentData = data.slice(indexOfFirstPost, indexOfLastPost)
+
     const totalPages = Math.ceil( totalCount/pageSize)
 
     const onChangeCurrentPage = (currentPage: any) => {

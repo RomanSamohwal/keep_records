@@ -1,8 +1,8 @@
 import React from 'react';
+import {UserForm} from '../../utils/formUser';
 import './Table.css'
-import {UserForm} from "../../utils/formUser";
 
-export const TableComponent = (props: any) => {
+export const TableComponent = React.memo((props: any) => {
 
     const title = ['Фамилия', 'Имя', 'Отчество',
         'Дата рождения', 'Идентификационный номер',
@@ -10,9 +10,8 @@ export const TableComponent = (props: any) => {
         'Адрес регистрации (коды ATE и TE)',
         'Дата регистрации'
     ]
-
-  const ArrayDate = props.data.map((user: UserForm) => (
-            <tr role={'row'} key={user.identif}>
+    const ArrayDate = props.data.length > 0 ? props.data.map((user: UserForm) => (
+            <tr role={'row'} key={user.identif + Math.floor(Math.random() * Math.floor(1000))}>
                 <td role={'cell'} className={'table-cell'}>
                     <span>{user.surname}</span>
                 </td>
@@ -39,10 +38,20 @@ export const TableComponent = (props: any) => {
                 </td>
             </tr>
         )
-    )
+    ) : <tr role={'row'} style={{backgroundColor: "white", height: 'auto', padding: '10px'}} className={'table-cell'}>
+        <td role={'cell'} className={'table-cell'} style={{height: 'auto'}}><span>Записи отсуствуют</span></td>
+        <td role={'cell'} className={'table-cell'} style={{height: 'auto'}}><span></span></td>
+        <td role={'cell'} className={'table-cell'} style={{height: 'auto'}}><span></span></td>
+        <td role={'cell'} className={'table-cell'} style={{height: 'auto'}}><span></span></td>
+        <td role={'cell'} className={'table-cell'} style={{height: 'auto'}}><span></span></td>
+        <td role={'cell'} className={'table-cell'} style={{height: 'auto'}}><span></span></td>
+        <td role={'cell'} className={'table-cell'} style={{height: 'auto'}}><span></span></td>
+        <td role={'cell'} className={'table-cell'} style={{height: 'auto'}}><span></span></td>
+    </tr>
+
 
     const headerTable = title.map((t) => {
-        return <th className={'table-cell header'} style={{backgroundColor: '#d9e8fc'}}>
+        return <th key={t}  className='table-cell header' style={{backgroundColor: '#d9e8fc', height: '35px'}}>
             <span>{t}</span>
         </th>
     })
@@ -59,4 +68,4 @@ export const TableComponent = (props: any) => {
             </tbody>
         </table>
     </div>
-}
+})
